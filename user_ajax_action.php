@@ -28,10 +28,8 @@ if(isset($_POST['page']))
 				$output = array(
 					'success'		=>	true
 				);
-				//echo json_encode($output); //Было
+				echo json_encode($output);
 			}
-
-			echo json_encode($output); // из урока
 		}
 
 		if($_POST['action'] == 'register')
@@ -338,9 +336,9 @@ if(isset($_POST['page']))
 			 	$exam->query .= 'OR online_exam_table.online_exam_datetime LIKE "%'.$_POST["search"]["value"].'%" ';
 			 	$exam->query .= 'OR online_exam_table.online_exam_duration LIKE "%'.$_POST["search"]["value"].'%" ';
 			 	$exam->query .= 'OR online_exam_table.total_question LIKE "%'.$_POST["search"]["value"].'%" ';
-			 	//$exam->query .= 'OR online_exam_table.marks_per_right_answer LIKE "%'.$_POST["search"]["value"].'%" ';
-			 	//$exam->query .= 'OR online_exam_table.marks_per_wrong_answer LIKE "%'.$_POST["search"]["value"].'%" ';
-			 	//$exam->query .= 'OR online_exam_table.online_exam_status LIKE "%'.$_POST["search"]["value"].'%" ';
+			 	$exam->query .= 'OR online_exam_table.marks_per_right_answer LIKE "%'.$_POST["search"]["value"].'%" ';
+			 	$exam->query .= 'OR online_exam_table.marks_per_wrong_answer LIKE "%'.$_POST["search"]["value"].'%" ';
+			 	$exam->query .= 'OR online_exam_table.online_exam_status LIKE "%'.$_POST["search"]["value"].'%" ';
 			}
 
 			$exam->query .= ')';
@@ -409,19 +407,11 @@ if(isset($_POST['page']))
 				{
 					$view_exam = '<a href="view_exam.php?code='.$row["online_exam_code"].'" class="btn btn-info btn-sm">View Exam</a>';
 				}
-				else
-				{
-					if($row['online_exam_status'] == 'Completed')
-					{
-						$view_exam = '<a href="view_exam.php?code='.$row["online_exam_code"].'" class="btn btn-info btn-sm">View Exam</a>';
-					}
-				}
-				/*
 				if($row["online_exam_status"] == 'Completed')
 				{
 					$view_exam = '<a href="view_exam.php?code='.$row["online_exam_code"].'" class="btn btn-info btn-sm">View Exam</a>';
 				}
-				*/
+
 				
 				$sub_array[] = $view_exam;
 
@@ -480,6 +470,7 @@ if(isset($_POST['page']))
 
 				$count = 1;
 
+/*
 				foreach($sub_result as $sub_row)
 				{
 					$output .= '
@@ -492,10 +483,41 @@ if(isset($_POST['page']))
 
 					$count = $count + 1;
 				}
+*/
+
+// решение из https://www.youtube.com/watch?v=vI-ueey8PGo&list=PLxl69kCRkiI1LLWlNI6FwCj0PqKK80KCS&index=32&t=0s
+				foreach($sub_result as $sub_row)
+				{
+					$exam->query = "
+					SELECT * FROM user_exam_question_answer 
+					WHERE question_id = '".$row['question_id']."'
+					";
+					$answer_result = $exam->query_result();
+					
+					foreach($answer_result as $row)
+					{
+						$user_answer_option = $row["user_answer_option"];	
+					}
+					
+					$output .= '
+					<div class="col-md-6" style="margin-bottom:32px;">
+						<div class="radio">
+							<label><h4><input type="radio" name="option_1" class="answer_option"';
+							if($count == $user_answer_option){
+								$output .= ' checked="checked" ';
+							}
+					$output .= '
+							data-question_id="'.$row["question_id"].'" data-id="'.$count.'"/>&nbsp;'.$sub_row["option_title"].'</h4></label>
+						</div>
+					</div>
+					';
+
+					$count = $count + 1;
+				}
+// конец решения
 				$output .= '
 				</div>
 				';
-			
 				$exam->query = "
 				SELECT question_id FROM question_table 
 				WHERE question_id < '".$row['question_id']."' 
@@ -573,7 +595,7 @@ if(isset($_POST['page']))
 					<button type="button" class="btn btn-primary btn-lg question_navigation" data-question_id="'.$row["question_id"].'">'.$count.'</button>
 				</div>
 				';
-				$count = $count + 1;
+				$count++;
 			}
 			$output .= '
 				</div>

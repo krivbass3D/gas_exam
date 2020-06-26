@@ -2,9 +2,6 @@
 
 //view_exam.php
 
-
-//https://www.youtube.com/watch?v=vI-ueey8PGo&list=PLxl69kCRkiI1LLWlNI6FwCj0PqKK80KCS&index=32&t=0s
-
 include('master/Examination.php');
 
 $exam = new Examination;
@@ -182,7 +179,7 @@ $(document).ready(function(){
 			data:{question_id:question_id, answer_option:answer_option, exam_id:exam_id, page:'view_exam', action:'answer'},
 			success:function(data)
 			{
-
+// Наверное проблема так как пусто!!!! урок 31 https://www.youtube.com/watch?v=VyUs9PTZSCA&list=PLxl69kCRkiI1LLWlNI6FwCj0PqKK80KCS&index=32
 			}
 		})
 	});
@@ -204,6 +201,7 @@ if($exam_status == 'Completed')
 	//echo $exam->query;
 
 	$result = $exam->query_result();
+	//$exam->query_result(); //так было в уроке
 ?>
 	<div class="card">
 		<div class="card-header">
@@ -318,3 +316,4 @@ if($exam_status == 'Completed')
 </div>
 </body>
 </html>
+
