@@ -217,12 +217,12 @@ if($exam_status == 'Completed')
 				<table class="table table-bordered table-hover">
 					<tr>
 						<th>Question</th>
-						<th>Option 1</th>
-						<th>Option 2</th>
-						<th>Option 3</th>
-						<th>Option 4</th>
+						<th>Вариант 1</th>
+						<th>Вариант 2</th>
+						<th>Вариант 3</th>
+						<th>Вариант 4</th>
 						<th>Your Answer</th>
-						<th>Answer</th>
+						<th>Відповідь</th>
 						<th>Result</th>
 						<th>Marks</th>
 					</tr>

@@ -8,15 +8,15 @@ include('header.php');
 <br />
 <nav aria-label="breadcrumb">
   	<ol class="breadcrumb">
-    	<li class="breadcrumb-item"><a href="exam.php">Exam List</a></li>
-    	<li class="breadcrumb-item active" aria-current="page">Question List</li>
+    	<li class="breadcrumb-item"><a href="exam.php">Список іспитів</a></li>
+    	<li class="breadcrumb-item active" aria-current="page">Список питань</li>
   	</ol>
 </nav>
 <div class="card">
 	<div class="card-header">
 		<div class="row">
 			<div class="col-md-9">
-				<h3 class="panel-title">Question List</h3>
+				<h3 class="panel-title">Список питань</h3>
 			</div>
 			<div class="col-md-3" align="right">
 				
@@ -29,9 +29,9 @@ include('header.php');
 			<table id="question_data_table" class="table table-bordered table-striped table-hover">
 				<thead>
 					<tr>
-						<th>Question Title</th>
-						<th>Right Option</th>
-						<th>Action</th>
+						<th>Назва питання</th>
+						<th>Правильний варіант</th>
+						<th>Дiя</th>
 					</tr>
 				</thead>
 			</table>
@@ -53,7 +53,7 @@ include('header.php');
         		<div class="modal-body">
           			<div class="form-group">
             			<div class="row">
-              				<label class="col-md-4 text-right">Question Title <span class="text-danger">*</span></label>
+              				<label class="col-md-4 text-right">Назва питання <span class="text-danger">*</span></label>
 	              			<div class="col-md-8">
 	                			<input type="text" name="question_title" id="question_title" autocomplete="off" class="form-control" />
 	                		</div>
@@ -61,7 +61,7 @@ include('header.php');
           			</div>
           			<div class="form-group">
             			<div class="row">
-              				<label class="col-md-4 text-right">Option 1 <span class="text-danger">*</span></label>
+              				<label class="col-md-4 text-right">Вариант 1 <span class="text-danger">*</span></label>
 	              			<div class="col-md-8">
 	                			<input type="text" name="option_title_1" id="option_title_1" autocomplete="off" class="form-control" />
 	                		</div>
@@ -69,7 +69,7 @@ include('header.php');
           			</div>
           			<div class="form-group">
             			<div class="row">
-              				<label class="col-md-4 text-right">Option 2 <span class="text-danger">*</span></label>
+              				<label class="col-md-4 text-right">Вариант 2 <span class="text-danger">*</span></label>
 	              			<div class="col-md-8">
 	                			<input type="text" name="option_title_2" id="option_title_2" autocomplete="off" class="form-control" />
 	                		</div>
@@ -77,7 +77,7 @@ include('header.php');
           			</div>
           			<div class="form-group">
             			<div class="row">
-              				<label class="col-md-4 text-right">Option 3 <span class="text-danger">*</span></label>
+              				<label class="col-md-4 text-right">Вариант 3 <span class="text-danger">*</span></label>
 	              			<div class="col-md-8">
 	                			<input type="text" name="option_title_3" id="option_title_3" autocomplete="off" class="form-control" />
 	                		</div>
@@ -85,7 +85,7 @@ include('header.php');
           			</div>
           			<div class="form-group">
             			<div class="row">
-              				<label class="col-md-4 text-right">Option 4 <span class="text-danger">*</span></label>
+              				<label class="col-md-4 text-right">Вариант 4 <span class="text-danger">*</span></label>
 	              			<div class="col-md-8">
 	                			<input type="text" name="option_title_4" id="option_title_4" autocomplete="off" class="form-control" />
 	                		</div>
@@ -93,14 +93,14 @@ include('header.php');
           			</div>
           			<div class="form-group">
             			<div class="row">
-              				<label class="col-md-4 text-right">Answer <span class="text-danger">*</span></label>
+              				<label class="col-md-4 text-right">Відповідь <span class="text-danger">*</span></label>
 	              			<div class="col-md-8">
 	                			<select name="answer_option" id="answer_option" class="form-control">
-	                				<option value="">Select</option>
-	                				<option value="1">1 Option</option>
-	                				<option value="2">2 Option</option>
-	                				<option value="3">3 Option</option>
-	                				<option value="4">4 Option</option>
+	                				<option value="">Виберіть</option>
+	                				<option value="1">1 Вариант</option>
+	                				<option value="2">2 Вариант</option>
+	                				<option value="3">3 Вариант</option>
+	                				<option value="4">4 Вариант</option>
 	                			</select>
 	                		</div>
             			</div>
@@ -113,8 +113,8 @@ include('header.php');
 	          		<input type="hidden" name="online_exam_id" id="hidden_online_exam_id" />
 	          		<input type="hidden" name="page" value="question" />
 	          		<input type="hidden" name="action" id="hidden_action" value="Edit" />
-	          		<input type="submit" name="question_button_action" id="question_button_action" class="btn btn-success btn-sm" value="Add" />
-	          		<button type="button" class="btn btn-danger btn-sm" data-dismiss="modal">Close</button>
+	          		<input type="submit" name="question_button_action" id="question_button_action" class="btn btn-success btn-sm" value="Додати" />
+	          		<button type="button" class="btn btn-danger btn-sm" data-dismiss="modal">Закрити</button>
 	        	</div>
         	</div>
     	</form>
@@ -127,19 +127,19 @@ include('header.php');
 
       		<!-- Modal Header -->
       		<div class="modal-header">
-        		<h4 class="modal-title">Delete Confirmation</h4>
+        		<h4 class="modal-title">Пiдтвердження видалення</h4>
         		<button type="button" class="close" data-dismiss="modal">&times;</button>
       		</div>
 
       		<!-- Modal body -->
       		<div class="modal-body">
-        		<h3 align="center">Are you sure you want to remove this?</h3>
+        		<h3 align="center">Ви впевнені, що хочете видалити це?</h3>
       		</div>
 
       		<!-- Modal footer -->
       		<div class="modal-footer">
       			<button type="button" name="ok_button" id="ok_button" class="btn btn-primary btn-sm">OK</button>
-        		<button type="button" class="btn btn-danger btn-sm" data-dismiss="modal">Close</button>
+        		<button type="button" class="btn btn-danger btn-sm" data-dismiss="modal">Закрити</button>
       		</div>
     	</div>
   	</div>
@@ -196,7 +196,7 @@ var dataTable = $('#question_data_table').DataTable({
 				beforeSend:function(){
 					$('#question_button_action').attr('disabled', 'disabled');
 
-					$('#question_button_action').val('Validate...');
+					$('#question_button_action').val('Перевiрка...');
 				},
 				success:function(data)
 				{
@@ -219,7 +219,7 @@ var dataTable = $('#question_data_table').DataTable({
 
 	function reset_question_form()
 	{
-		$('#question_button_action').val('Edit');
+		$('#question_button_action').val('Редагувати');
 		$('#question_form')[0].reset();
 		$('#question_form').parsley().reset();
 	}
@@ -243,7 +243,7 @@ var dataTable = $('#question_data_table').DataTable({
 				$('#option_title_4').val(data.option_title_4);
 				$('#answer_option').val(data.answer_option);
 				$('#question_id').val(question_id);
-				$('#question_modal_title').text('Edit Question Details');
+				$('#question_modal_title').text('Редагувати питання');
 				$('#questionModal').modal('show');
 			}
 		})

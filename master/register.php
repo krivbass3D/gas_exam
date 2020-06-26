@@ -54,7 +54,7 @@ $exam->admin_session_public();
                     <div class="form-group">
                       <input type="hidden" name="page" value="register" />
                       <input type="hidden" name="action" value="register" />
-                      <input type="submit" name="admin_register" id="admin_register" class="btn btn-info" value="Register" />
+                      <input type="submit" name="admin_register" id="admin_register" class="btn btn-info" value="Зареєструйтесь" />
                     </div>
                   </form>
           				<div align="center">
@@ -118,19 +118,19 @@ $(document).ready(function(){
         dataType:"json",
         beforeSend:function(){
           $('#admin_register').attr('disabled', 'disabled');
-          $('#admin_register').val('please wait...');
+          $('#admin_register').val('будь ласка, зачекайте...');
         },
         success:function(data)
         {
           if(data.success)
           {
-            $('#message').html('<div class="alert alert-success">Please check your email</div>');
+            $('#message').html('<div class="alert alert-success">Будь ласка, перевірте свою електронну пошту</div>');
             $('#admin_register_form')[0].reset();
             $('#admin_register_form').parsley().reset();
           }
 
           $('#admin_register').attr('disabled', false);
-          $('#admin_register').val('Register');
+          $('#admin_register').val('Зареєструйтесь');
         }
       });
     }

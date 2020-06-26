@@ -303,7 +303,7 @@ class Examination
 			{
 				if($current_datetime > $exam_end_time)
 				{
-					//exam completed
+					//exam Completed
 					$this->data = array(
 						':online_exam_status'	=>	'Completed'
 					);

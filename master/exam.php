@@ -11,10 +11,10 @@ include('header.php');
 	<div class="card-header">
 		<div class="row">
 			<div class="col-md-9">
-				<h3 class="panel-title">Online Exam List</h3>
+				<h3 class="panel-title">Список онлайн-іспитів</h3>
 			</div>
 			<div class="col-md-3" align="right">
-				<button type="button" id="add_button" class="btn btn-info btn-sm">Add</button>
+				<button type="button" id="add_button" class="btn btn-info btn-sm">Додати</button>
 			</div>
 		</div>
 	</div>
@@ -24,16 +24,16 @@ include('header.php');
 			<table id="exam_data_table" class="table table-bordered table-striped table-hover">
 				<thead>
 					<tr>
-						<th>Exam Title</th>
-						<th>Date & Time</th>
-						<th>Duration</th>
-						<th>Total Question</th>
-						<th>Right Answer Mark</th>
-						<th>Wrong Answer Mark</th>
-						<th>Status</th>
-						<th>Question</th>
-						<th>Result</th>
-						<th>Action</th>
+						<th>Назва іспиту</th>
+						<th>Дата & Час</th>
+						<th>Тривалість</th>
+						<th>Всього питань</th>
+						<th>Бал правильної відповіді</th>
+						<th>Бал НЕправильної відповіді</th>
+						<th>Статус</th>
+						<th>Питання</th>
+						<th>Результат</th>
+						<th>Дія</th>
 					</tr>
 				</thead>
 			</table>
@@ -55,7 +55,7 @@ include('header.php');
         		<div class="modal-body">
           			<div class="form-group">
             			<div class="row">
-              				<label class="col-md-4 text-right">Exam Title <span class="text-danger">*</span></label>
+              				<label class="col-md-4 text-right">Назва іспиту <span class="text-danger">*</span></label>
 	              			<div class="col-md-8">
 	                			<input type="text" name="online_exam_title" id="online_exam_title" class="form-control" />
 	                		</div>
@@ -63,7 +63,7 @@ include('header.php');
           			</div>
           			<div class="form-group">
             			<div class="row">
-              				<label class="col-md-4 text-right">Exam Date & Time <span class="text-danger">*</span></label>
+              				<label class="col-md-4 text-right">Додати дані про іспит <span class="text-danger">*</span></label>
 	              			<div class="col-md-8">
 	                			<input type="text" name="online_exam_datetime" id="online_exam_datetime" class="form-control" readonly />
 	                		</div>
@@ -71,61 +71,61 @@ include('header.php');
           			</div>
           			<div class="form-group">
             			<div class="row">
-              				<label class="col-md-4 text-right">Exam Duration <span class="text-danger">*</span></label>
+              				<label class="col-md-4 text-right">Тривалість іспиту <span class="text-danger">*</span></label>
 	              			<div class="col-md-8">
 	                			<select name="online_exam_duration" id="online_exam_duration" class="form-control">
-	                				<option value="">Select</option>
-	                				<option value="5">5 Minute</option>
-	                				<option value="30">30 Minute</option>
-	                				<option value="60">1 Hour</option>
-	                				<option value="120">2 Hour</option>
-	                				<option value="180">3 Hour</option>
+	                				<option value="">Виберіть</option>
+	                				<option value="5">5 Хвилин</option>
+	                				<option value="30">30 Хвилин</option>
+	                				<option value="60">1 Година</option>
+	                				<option value="120">2 Години</option>
+	                				<option value="180">3 Години</option>
 	                			</select>
 	                		</div>
             			</div>
           			</div>
           			<div class="form-group">
             			<div class="row">
-              				<label class="col-md-4 text-right">Total Question <span class="text-danger">*</span></label>
+              				<label class="col-md-4 text-right">Всього питань <span class="text-danger">*</span></label>
 	              			<div class="col-md-8">
 	                			<select name="total_question" id="total_question" class="form-control">
-	                				<option value="">Select</option>
-	                				<option value="5">5 Question</option>
-	                				<option value="10">10 Question</option>
-	                				<option value="25">25 Question</option>
-	                				<option value="50">50 Question</option>
-	                				<option value="100">100 Question</option>
-	                				<option value="200">200 Question</option>
-	                				<option value="300">300 Question</option>
+	                				<option value="">Виберіть</option>
+	                				<option value="5">5 Питань</option>
+	                				<option value="10">10 Питань</option>
+	                				<option value="25">25 Питань</option>
+	                				<option value="50">50 Питань</option>
+	                				<option value="100">100 Питань</option>
+	                				<option value="200">200 Питань</option>
+	                				<option value="300">300 Питань</option>
 	                			</select>
 	                		</div>
             			</div>
           			</div>
           			<div class="form-group">
             			<div class="row">
-              				<label class="col-md-4 text-right">Marks for Right Answer <span class="text-danger">*</span></label>
+              				<label class="col-md-4 text-right">Бал правильної відповіді <span class="text-danger">*</span></label>
 	              			<div class="col-md-8">
 	                			<select name="marks_per_right_answer" id="marks_per_right_answer" class="form-control">
-	                				<option value="">Select</option>
-	                				<option value="1">+1 Mark</option>
-	                				<option value="2">+2 Mark</option>
-	                				<option value="3">+3 Mark</option>
-	                				<option value="4">+4 Mark</option>
-	                				<option value="5">+5 Mark</option>
+	                				<option value="">Виберіть</option>
+	                				<option value="1">+1 Бал</option>
+	                				<option value="2">+2 Бали</option>
+	                				<option value="3">+3 Бали</option>
+	                				<option value="4">+4 Бали</option>
+	                				<option value="5">+5 Бали</option>
 	                			</select>
 	                		</div>
             			</div>
           			</div>
           			<div class="form-group">
             			<div class="row">
-              				<label class="col-md-4 text-right">Marks for Wrong Answer <span class="text-danger">*</span></label>
+              				<label class="col-md-4 text-right">Бал НЕправильної відповіді <span class="text-danger">*</span></label>
 	              			<div class="col-md-8">
 	                			<select name="marks_per_wrong_answer" id="marks_per_wrong_answer" class="form-control">
-	                				<option value="">Select</option>
-	                				<option value="1">-1 Mark</option>
-	                				<option value="1.25">-1.25 Mark</option>
-	                				<option value="1.50">-1.50 Mark</option>
-	                				<option value="2">-2 Mark</option>
+	                				<option value="">Виберіть</option>
+	                				<option value="1">-1 Бал</option>
+	                				<option value="1.25">-1.25 Бали</option>
+	                				<option value="1.50">-1.50 Бали</option>
+	                				<option value="2">-2 Бали</option>
 	                			</select>
 	                		</div>
             			</div>
@@ -140,9 +140,9 @@ include('header.php');
 
 	        		<input type="hidden" name="action" id="action" value="Add" />
 
-	        		<input type="submit" name="button_action" id="button_action" class="btn btn-success btn-sm" value="Add" />
+	        		<input type="submit" name="button_action" id="button_action" class="btn btn-success btn-sm" value="Додати" />
 
-	          		<button type="button" class="btn btn-danger btn-sm" data-dismiss="modal">Close</button>
+	          		<button type="button" class="btn btn-danger btn-sm" data-dismiss="modal">Закрити</button>
 	        	</div>
         	</div>
     	</form>
@@ -155,19 +155,19 @@ include('header.php');
 
       		<!-- Modal Header -->
       		<div class="modal-header">
-        		<h4 class="modal-title">Delete Confirmation</h4>
+        		<h4 class="modal-title">Видалити підтвердження</h4>
         		<button type="button" class="close" data-dismiss="modal">&times;</button>
       		</div>
 
       		<!-- Modal body -->
       		<div class="modal-body">
-        		<h3 align="center">Are you sure you want to remove this?</h3>
+        		<h3 align="center">Ви впевнені, що хочете видалити це?</h3>
       		</div>
 
       		<!-- Modal footer -->
       		<div class="modal-footer">
       			<button type="button" name="ok_button" id="ok_button" class="btn btn-primary btn-sm">OK</button>
-        		<button type="button" class="btn btn-danger btn-sm" data-dismiss="modal">Close</button>
+        		<button type="button" class="btn btn-danger btn-sm" data-dismiss="modal">Закрити</button>
       		</div>
     	</div>
   	</div>
@@ -187,7 +187,7 @@ include('header.php');
         		<div class="modal-body">
           			<div class="form-group">
             			<div class="row">
-              				<label class="col-md-4 text-right">Question Title <span class="text-danger">*</span></label>
+              				<label class="col-md-4 text-right">Назва питання <span class="text-danger">*</span></label>
 	              			<div class="col-md-8">
 	                			<input type="text" name="question_title" id="question_title" autocomplete="off" class="form-control" />
 	                		</div>
@@ -195,7 +195,7 @@ include('header.php');
           			</div>
           			<div class="form-group">
             			<div class="row">
-              				<label class="col-md-4 text-right">Option 1 <span class="text-danger">*</span></label>
+              				<label class="col-md-4 text-right">Варіант 1 <span class="text-danger">*</span></label>
 	              			<div class="col-md-8">
 	                			<input type="text" name="option_title_1" id="option_title_1" autocomplete="off" class="form-control" />
 	                		</div>
@@ -203,7 +203,7 @@ include('header.php');
           			</div>
           			<div class="form-group">
             			<div class="row">
-              				<label class="col-md-4 text-right">Option 2 <span class="text-danger">*</span></label>
+              				<label class="col-md-4 text-right">Варіант 2 <span class="text-danger">*</span></label>
 	              			<div class="col-md-8">
 	                			<input type="text" name="option_title_2" id="option_title_2" autocomplete="off" class="form-control" />
 	                		</div>
@@ -211,7 +211,7 @@ include('header.php');
           			</div>
           			<div class="form-group">
             			<div class="row">
-              				<label class="col-md-4 text-right">Option 3 <span class="text-danger">*</span></label>
+              				<label class="col-md-4 text-right">Варіант 3 <span class="text-danger">*</span></label>
 	              			<div class="col-md-8">
 	                			<input type="text" name="option_title_3" id="option_title_3" autocomplete="off" class="form-control" />
 	                		</div>
@@ -219,7 +219,7 @@ include('header.php');
           			</div>
           			<div class="form-group">
             			<div class="row">
-              				<label class="col-md-4 text-right">Option 4 <span class="text-danger">*</span></label>
+              				<label class="col-md-4 text-right">Варіант 4 <span class="text-danger">*</span></label>
 	              			<div class="col-md-8">
 	                			<input type="text" name="option_title_4" id="option_title_4" autocomplete="off" class="form-control" />
 	                		</div>
@@ -227,14 +227,14 @@ include('header.php');
           			</div>
           			<div class="form-group">
             			<div class="row">
-              				<label class="col-md-4 text-right">Answer <span class="text-danger">*</span></label>
+              				<label class="col-md-4 text-right">Відповідь <span class="text-danger">*</span></label>
 	              			<div class="col-md-8">
 	                			<select name="answer_option" id="answer_option" class="form-control">
-	                				<option value="">Select</option>
-	                				<option value="1">1 Option</option>
-	                				<option value="2">2 Option</option>
-	                				<option value="3">3 Option</option>
-	                				<option value="4">4 Option</option>
+	                				<option value="">Виберіть</option>
+	                				<option value="1">1 Варіант</option>
+	                				<option value="2">2 Варіант</option>
+	                				<option value="3">3 Варіант</option>
+	                				<option value="4">4 Варіант</option>
 	                			</select>
 	                		</div>
             			</div>
@@ -251,9 +251,9 @@ include('header.php');
 
 	        		<input type="hidden" name="action" id="hidden_action" value="Add" />
 
-	        		<input type="submit" name="question_button_action" id="question_button_action" class="btn btn-success btn-sm" value="Add" />
+	        		<input type="submit" name="question_button_action" id="question_button_action" class="btn btn-success btn-sm" value="Додати" />
 
-	          		<button type="button" class="btn btn-danger btn-sm" data-dismiss="modal">Close</button>
+	          		<button type="button" class="btn btn-danger btn-sm" data-dismiss="modal">Закрити</button>
 	        	</div>
         	</div>
     	</form>
@@ -284,8 +284,8 @@ $(document).ready(function(){
 
 	function reset_form()
 	{
-		$('#modal_title').text('Add Exam Details');
-		$('#button_action').val('Add');
+		$('#modal_title').text('Додати дані про іспит');
+		$('#button_action').val('Додати');
 		$('#action').val('Add');
 		$('#exam_form')[0].reset();
 		$('#exam_form').parsley().reset();
@@ -334,7 +334,7 @@ $(document).ready(function(){
 				dataType:"json",
 				beforeSend:function(){
 					$('#button_action').attr('disabled', 'disabled');
-					$('#button_action').val('Validate...');
+					$('#button_action').val('Перевiрка...');
 				},
 				success:function(data)
 				{
@@ -349,7 +349,7 @@ $(document).ready(function(){
 						$('#formModal').modal('hide');
 					}else
 				          {
-				          	alert("хреново");
+				          	alert("Что-то пошло не так");
 				            $('#message').html('<div class="alert alert-danger">'+data.error+'</div>');
 				          }
 
@@ -391,9 +391,9 @@ $(document).ready(function(){
 
 				$('#online_exam_id').val(exam_id);
 
-				$('#modal_title').text('Edit Exam Details');
+				$('#modal_title').text('Редагування даних про іспит');
 
-				$('#button_action').val('Edit');
+				$('#button_action').val('Редагувати');
 
 				$('#action').val('Edit');
 
@@ -425,8 +425,8 @@ $(document).ready(function(){
 
 	function reset_question_form()
 	{
-		$('#question_modal_title').text('Add Question');
-		$('#question_button_action').val('Add');
+		$('#question_modal_title').text('Питання додано');
+		$('#question_button_action').val('Додати');
 		$('#hidden_action').val('Add');
 		$('#question_form')[0].reset();
 		$('#question_form').parsley().reset();
@@ -467,7 +467,7 @@ $(document).ready(function(){
 				beforeSend:function(){
 					$('#question_button_action').attr('disabled', 'disabled');
 
-					$('#question_button_action').val('Validate...');
+					$('#question_button_action').val('Перевiрка...');
 				},
 				success:function(data)
 				{
@@ -476,7 +476,7 @@ $(document).ready(function(){
 						$('#message_operation').html('<div class="alert alert-success">'+data.success+'</div>');
 
 						reset_question_form();
-						//dataTable.ajax.reload();
+						dataTable.ajax.reload(); //почемуто было закоментировано в исходнике
 						$('#questionModal').modal('hide');
 					}
 

@@ -393,12 +393,12 @@ if(isset($_POST['page']))
 
 				if($row['online_exam_status'] == 'Started')
 				{
-					$status = '<span class="badge badge-primary">Started</span>';
+					$status = '<span class="badge badge-primary">Почато</span>';
 				}
 
 				if($row['online_exam_status'] == 'Completed')
 				{
-					$status = '<span class="badge badge-dark">Completed</span>';
+					$status = '<span class="badge badge-dark">Завершено</span>';
 				}
 
 				$sub_array[] = $status;				

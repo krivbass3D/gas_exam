@@ -26,7 +26,7 @@ include('header.php');
 			<div class="col-md-3"></div>
 			<div class="col-md-6">
 				<select name="exam_list" id="exam_list" class="form-control input-lg">
-					<option value="">Select Exam</option>
+					<option value="">Виберіть іспит</option>
 					<?php
 
 					echo $exam->Fill_exam_list();
@@ -73,14 +73,14 @@ include('header.php');
 					beforeSend:function()
 					{
 						$('#enroll_button').attr('disabled', 'disabled');
-						$('#enroll_button').text('please wait');
+						$('#enroll_button').text('зачекайте');
 					},
 					success:function()
 					{
 						$('#enroll_button').attr('disabled', false);
 						$('#enroll_button').removeClass('btn-warning');
 						$('#enroll_button').addClass('btn-success');
-						$('#enroll_button').text('Enroll success');
+						$('#enroll_button').text('Запис успішна');
 					}
 				});
 			});
@@ -93,8 +93,8 @@ include('header.php');
 		{
 		?>
 		<div align="center">
-			<p><a href="register.php" class="btn btn-warning btn-lg">Register</a></p>
-			<p><a href="login.php" class="btn btn-dark btn-lg">Login</a></p>
+			<p><a href="register.php" class="btn btn-warning btn-lg">Зареєструватись</a></p>
+			<p><a href="login.php" class="btn btn-dark btn-lg">Вхiд</a></p>
 		</div>
 		<?php
 		}

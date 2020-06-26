@@ -204,14 +204,14 @@ if(isset($_POST['page']))
 
 				$sub_array[] = $row['online_exam_datetime'];
 				
-				$sub_array[] = $row['online_exam_duration'] . ' Minute';
+				$sub_array[] = $row['online_exam_duration'] . ' Хвилин';
 
-				$sub_array[] = $row['total_question'] . ' Question';
+				$sub_array[] = $row['total_question'] . ' Питань';
 
-				$sub_array[] = $row['marks_per_right_answer'] . ' Mark';
+				$sub_array[] = $row['marks_per_right_answer'] . ' Бали';
 
 
-				$sub_array[] = '-' . $row['marks_per_wrong_answer'] . ' Mark';
+				$sub_array[] = '-' . $row['marks_per_wrong_answer'] . ' Бали';
 
 				$status = '';
 				$edit_button = '';
@@ -221,31 +221,31 @@ if(isset($_POST['page']))
 
 				if($row['online_exam_status'] == 'Pending')
 				{
-					$status = '<span class="badge badge-warning">Pending</span>';
+					$status = '<span class="badge badge-warning">Очікування</span>';
 				}
 
 				if($row['online_exam_status'] == 'Created')
 				{
-					$status = '<span class="badge badge-success">Created</span>';
+					$status = '<span class="badge badge-success">Створено</span>';
 				}
 
 				if($row['online_exam_status'] == 'Started')
 				{
-					$status = '<span class="badge badge-primary">Started</span>';
+					$status = '<span class="badge badge-primary">Почато</span>';
 				}
 
 				if($row['online_exam_status'] == 'Completed')
 				{
-					$status = '<span class="badge badge-dark">Completed</span>';
+					$status = '<span class="badge badge-dark">Завершено</span>';
 				}
 
 				if($exam->Is_exam_is_not_started($row["online_exam_id"]))
 				{
 					$edit_button = '
-					<button type="button" name="edit" class="btn btn-primary btn-sm edit" id="'.$row['online_exam_id'].'">Edit</button>
+					<button type="button" name="edit" class="btn btn-primary btn-sm edit" id="'.$row['online_exam_id'].'">Редагувати</button>
 					';
 
-					$delete_button = '<button type="button" name="delete" class="btn btn-danger btn-sm delete" id="'.$row['online_exam_id'].'">Delete</button>';
+					$delete_button = '<button type="button" name="delete" class="btn btn-danger btn-sm delete" id="'.$row['online_exam_id'].'">Видалить</button>';
 
 				}
 				else
@@ -256,13 +256,13 @@ if(isset($_POST['page']))
 				if($exam->Is_allowed_add_question($row['online_exam_id']))
 				{
 					$question_button = '
-					<button type="button" name="add_question" class="btn btn-info btn-sm add_question" id="'.$row['online_exam_id'].'">Add Question</button>
+					<button type="button" name="add_question" class="btn btn-info btn-sm add_question" id="'.$row['online_exam_id'].'">Додати питання</button>
 					';
 				}
 				else
 				{
 					$question_button = '
-					<a href="question.php?code='.$row['online_exam_code'].'" class="btn btn-warning btn-sm">View Question</a>
+					<a href="question.php?code='.$row['online_exam_code'].'" class="btn btn-warning btn-sm">Переглянути питання</a>
 					';
 				}
 
@@ -379,7 +379,7 @@ if(isset($_POST['page']))
 			$exam->execute_query($exam->data);
 
 			$output = array(
-				'success'	=>	'Exam Details has been changed'
+				'success'	=>	'Деталі іспиту були змінені'
 			);
 
 			echo json_encode($output);
@@ -499,7 +499,6 @@ if(isset($_POST['page']))
 
 			$result = $exam->query_result();
 
-
 			$exam->query = "
 			SELECT * FROM question_table 
 			WHERE online_exam_id = '".$exam_id."'
@@ -507,10 +506,8 @@ if(isset($_POST['page']))
 
 			$total_rows = $exam->total_row();
 
-			$data = array();
-
-
-
+            $data = array();
+            
 			foreach($result as $row)
 			{
 
@@ -525,9 +522,9 @@ if(isset($_POST['page']))
 
 				if($exam->Is_exam_is_not_started($exam_id))
 				{
-					$edit_button = '<button type="button" name="edit" class="btn btn-primary btn-sm edit" id="'.$row['question_id'].'">Edit</button>';
+					$edit_button = '<button type="button" name="edit" class="btn btn-primary btn-sm edit" id="'.$row['question_id'].'">Редагувати</button>';
 
-					$delete_button = '<button type="button" name="delete" class="btn btn-danger btn-sm delete" id="'.$row['question_id'].'">Delete</button>';
+					$delete_button = '<button type="button" name="delete" class="btn btn-danger btn-sm delete" id="'.$row['question_id'].'">Видалить</button>';
 				}
 
 				$sub_array[] = $edit_button . ' ' . $delete_button;

@@ -62,7 +62,7 @@ $exam->admin_session_public();
                 <div class="form-group">
                   <input type="hidden" name="page" value="login" />
                   <input type="hidden" name="action" value="login" />
-                  <input type="submit" name="admin_login" id="admin_login" class="btn btn-info" value="Login" />
+                  <input type="submit" name="admin_login" id="admin_login" class="btn btn-info" value="Вхід" />
                 </div>
               </form>
               <div align="center">
@@ -105,7 +105,7 @@ $(document).ready(function(){
         dataType:"json",
         beforeSend:function(){
           $('#admin_login').attr('disabled', 'disabled');
-          $('#admin_login').val('please wait...');
+          $('#admin_login').val('Зачекайте...');
         },
         success:function(data)
         {
@@ -118,7 +118,7 @@ $(document).ready(function(){
             $('#message').html('<div class="alert alert-danger">'+data.error+'</div>');
           }
           $('#admin_login').attr('disabled', false);
-          $('#admin_login').val('Login');
+          $('#admin_login').val('Вхід');
         }
       });
     }
