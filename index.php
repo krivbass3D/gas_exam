@@ -73,14 +73,14 @@ include('header.php');
 					beforeSend:function()
 					{
 						$('#enroll_button').attr('disabled', 'disabled');
-						$('#enroll_button').text('зачекайте');
+						$('#enroll_button').text('Зачекайте...');
 					},
 					success:function()
 					{
 						$('#enroll_button').attr('disabled', false);
 						$('#enroll_button').removeClass('btn-warning');
 						$('#enroll_button').addClass('btn-success');
-						$('#enroll_button').text('Запис успішна');
+						$('#enroll_button').text('Запис успішний');
 					}
 				});
 			});

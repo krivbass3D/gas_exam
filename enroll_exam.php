@@ -16,20 +16,20 @@ include('header.php');
 
 <br />
 <div class="card">
-	<div class="card-header">Online Exam List</div>
+	<div class="card-header">Список онлайн-іспитів</div>
 	<div class="card-body">
 		<div class="table-responsive">
 			<table class="table table-bordered table-striped table-hover" id="exam_data_table">
 				<thead>
 					<tr>
-						<th>Exam Title</th>
-						<th>Date & Time</th>
-						<th>Duration</th>
-						<th>Total Question</th>
-						<th>Right Answer Mark</th>
-						<th>Wrong Answer Mark</th>
-						<th>Status</th>
-						<th>Action</th>
+						<th>Назва іспиту</th>
+						<th>Дата & час</th>
+						<th>Тривалiсть</th>
+						<th>Всього питань</th>
+						<th>Бал правильної відповіді</th>
+						<th>Бал НЕправильної відповіді</th>
+						<th>Статус</th>
+						<th>Дiя</th>
 					</tr>
 				</thead>
 			</table>

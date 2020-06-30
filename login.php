@@ -25,33 +25,33 @@ include('header.php');
             if(isset($_GET['verified']))
             {
               echo '
-              <div class="alert alert-success">
-                Your email has been verified, now you can login
+              <div class="alert alert-success">                
+                Ваш електронний лист перевірено, тепер ви можете увійти
               </div>
               ';
             }
             ?>   
             </span>
             <div class="card">
-              <div class="card-header">User Login</div>
+              <div class="card-header">Вхід користувача </div>
               <div class="card-body">
                 <form method="post" id="user_login_form">
                   <div class="form-group">
-                    <label>Enter Email Address</label>
+                    <label>Введіть електронну адресу</label>
                       <input type="text" name="user_email_address" id="user_email_address" class="form-control" />
                     </div>
                   <div class="form-group">
-                    <label>Enter Password</label>
+                    <label>Введіть пароль</label>
                     <input type="password" name="user_password" id="user_password" class="form-control" />
                   </div>
                   <div class="form-group">
                     <input type="hidden" name="page" value="login" />
                     <input type="hidden" name="action" value="login" />
-                    <input type="submit" name="user_login" id="user_login" class="btn btn-info" value="Login" />
+                    <input type="submit" name="user_login" id="user_login" class="btn btn-info" value="Вхід" />
                   </div>
                 </form>
                 <div align="center">
-                  <a href="register.php">Register</a>
+                  <a href="register.php">Зареєструйтесь</a>
                 </div>
               </div>
             </div>
@@ -90,7 +90,7 @@ $(document).ready(function(){
         beforeSend:function()
         {
           $('#user_login').attr('disabled', 'disabled');
-          $('#user_login').val('please wait...');
+          $('#user_login').val('Зачекайте...');
         },
         success:function(data)
         {
@@ -105,7 +105,7 @@ $(document).ready(function(){
 
           $('#user_login').attr('disabled', false);
 
-          $('#user_login').val('Login');
+          $('#user_login').val('Вхід');
         }
       })
     }

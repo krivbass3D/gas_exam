@@ -179,7 +179,7 @@ $(document).ready(function(){
 			data:{question_id:question_id, answer_option:answer_option, exam_id:exam_id, page:'view_exam', action:'answer'},
 			success:function(data)
 			{
-// Наверное проблема так как пусто!!!! урок 31 https://www.youtube.com/watch?v=VyUs9PTZSCA&list=PLxl69kCRkiI1LLWlNI6FwCj0PqKK80KCS&index=32
+
 			}
 		})
 	});

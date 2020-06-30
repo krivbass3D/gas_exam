@@ -10,10 +10,10 @@ include('header.php');
 	<div class="card-header">
 		<div class="row">
 			<div class="col-md-9">
-				<h3 class="panel-title">User List</h3>
+				<h3 class="panel-title">Список користувачів</h3>
 			</div>
 			<div class="col-md-3" align="right">
-				<button type="button" id="add_button" class="btn btn-info btn-sm">Add</button>
+				<button type="button" id="add_button" class="btn btn-info btn-sm">Додати</button>
 			</div>
 		</div>
 	</div>
@@ -23,13 +23,13 @@ include('header.php');
 			<table class="table table-bordered table-striped table-hover" id="user_data_table">
 				<thead>
 					<tr>
-						<th>Image</th>
-						<th>User Name</th>
-						<th>Email Address</th>
-						<th>Gender</th>
-						<th>Mobile No.</th>
-						<th>Email Verified</th>
-						<th>Action</th>
+						<th>Зображення</th>
+						<th>Ім'я користувача</th>
+						<th>Електронна пошта</th>
+						<th>Стать</th>
+						<th>No. Телефону</th>
+						<th>Підтвердженя пошти</th>
+						<th>Дiя</th>
 					</tr>
 				</thead>
 			</table>
@@ -43,7 +43,7 @@ include('header.php');
 
       		<!-- Modal Header -->
       		<div class="modal-header">
-        		<h4 class="modal-title">User Details</h4>
+        		<h4 class="modal-title">Інформація про користувача</h4>
         		<button type="button" class="close" data-dismiss="modal">&times;</button>
       		</div>
 
@@ -54,7 +54,7 @@ include('header.php');
 
       		<!-- Modal footer -->
       		<div class="modal-footer">
-        		<button type="button" class="btn btn-danger btn-sm" data-dismiss="modal">Close</button>
+        		<button type="button" class="btn btn-danger btn-sm" data-dismiss="modal">Закрити</button>
       		</div>
     	</div>
   	</div>

@@ -1,8 +1,5 @@
 <?php
-
 //view_exam.php
-
-
 //https://www.youtube.com/watch?v=vI-ueey8PGo&list=PLxl69kCRkiI1LLWlNI6FwCj0PqKK80KCS&index=32&t=0s
 
 include('master/Examination.php');
@@ -31,7 +28,7 @@ if(isset($_GET['code']))
 	{
 		$exam_status = $row['online_exam_status'];
 		$exam_star_time = $row['online_exam_datetime'];
-		$duration = $row['online_exam_duration'] . ' minute';
+		$duration = $row['online_exam_duration'] . ' хвилин';
 		$exam_end_time = strtotime($exam_star_time . '+' . $duration);
 
 		$exam_end_time = date('Y-m-d H:i:s', $exam_end_time);
@@ -69,7 +66,7 @@ if($exam_status == 'Started')
 <div class="row">
 	<div class="col-md-8">
 		<div class="card">
-			<div class="card-header">Online Exam</div>
+			<div class="card-header">Онлайн-іспит</div>
 			<div class="card-body">
 				<div id="single_question_area"></div>
 			</div>
@@ -166,7 +163,7 @@ $(document).ready(function(){
 		var remaining_second = $("#exam_timer").TimeCircles().getTime();
 		if(remaining_second < 1)
 		{
-			alert('Exam time over');
+			alert('Час іспиту закінчився'+remaining_second);
 			location.reload();
 		}
 	}, 1000);
@@ -208,7 +205,7 @@ if($exam_status == 'Completed')
 	<div class="card">
 		<div class="card-header">
 			<div class="row">
-				<div class="col-md-8">Online Exam Result</div>
+				<div class="col-md-8">Результат онлайн-іспиту</div>
 				<div class="col-md-4" align="right">
 					<a href="pdf_exam_result.php?code=<?php echo $_GET["code"]; ?>" class="btn btn-danger btn-sm" target="_blank">PDF</a>
 				</div>
@@ -218,15 +215,15 @@ if($exam_status == 'Completed')
 			<div class="table-responsive">
 				<table class="table table-bordered table-hover">
 					<tr>
-						<th>Question</th>
+						<th>Питання</th>
 						<th>Вариант 1</th>
 						<th>Вариант 2</th>
 						<th>Вариант 3</th>
 						<th>Вариант 4</th>
-						<th>Your Answer</th>
-						<th>Відповідь</th>
-						<th>Result</th>
-						<th>Marks</th>
+						<th>Ваша відповідь</th>
+						<th>Вiрна Відповідь</th>
+						<th>Результат</th>
+						<th>Бали</th>
 					</tr>
 					<?php
 					$total_mark = 0;
@@ -246,17 +243,17 @@ if($exam_status == 'Completed')
 
 						if($row['marks'] == '0')
 						{
-							$question_result = '<h4 class="badge badge-dark">Not Attend</h4>';
+							$question_result = '<h4 class="badge badge-dark">Без вiдповiдi</h4>';
 						}
 
 						if($row['marks'] > '0')
 						{
-							$question_result = '<h4 class="badge badge-success">Right</h4>';
+							$question_result = '<h4 class="badge badge-success">Вiрно</h4>';
 						}
 
 						if($row['marks'] < '0')
 						{
-							$question_result = '<h4 class="badge badge-danger">Wrong</h4>';
+							$question_result = '<h4 class="badge badge-danger">Помилка</h4>';
 						}
 
 						echo '
@@ -299,7 +296,7 @@ if($exam_status == 'Completed')
 					{
 					?>
 					<tr>
-						<td colspan="8" align="right">Total Marks</td>
+						<td colspan="8" align="right">Всього балiв</td>
 						<td align="right"><?php echo $row["total_mark"]; ?></td>
 					</tr>
 					<?php	

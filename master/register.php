@@ -41,7 +41,7 @@ $exam->admin_session_public();
           				<form method="post" id="admin_register_form">
                     <div class="form-group">
                         <label>Введіть електронну адресу</label>
-                        <input type="text" name="admin_email_address" id="admin_email_address" class="form-control" data-parsley-checkemail data-parsley-checkemail-message='Email Address already Exists' />
+                        <input type="text" name="admin_email_address" id="admin_email_address" class="form-control" data-parsley-checkemail data-parsley-checkemail-message='Адреса електронної пошти вже існує' />
                     </div>
                     <div class="form-group">
                       <label>Введіть пароль</label>
@@ -118,7 +118,7 @@ $(document).ready(function(){
         dataType:"json",
         beforeSend:function(){
           $('#admin_register').attr('disabled', 'disabled');
-          $('#admin_register').val('будь ласка, зачекайте...');
+          $('#admin_register').val('Зачекайте...');
         },
         success:function(data)
         {

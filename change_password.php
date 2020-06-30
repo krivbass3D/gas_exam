@@ -17,22 +17,22 @@ include('header.php');
 			<br /><br />
 			
 			<div class="card" style="margin-top:50px;margin-bottom: 100px;">
-        		<div class="card-header"><h4>Change Password</h4></div>
+        		<div class="card-header"><h4>Змінити пароль</h4></div>
         		<div class="card-body">
 	        		<form method="post"	id="change_password_form">
 	        			<div class="form-group">
-					        <label>Enter Password</label>
+					        <label>Введіть пароль</label>
 					        <input type="password" name="user_password" id="user_password" class="form-control" />
 					    </div>
 					    <div class="form-group">
-					        <label>Enter Confirm Password</label>
+					        <label>Ведіть пароль повторно</label>
 					        <input type="password" name="confirm_user_password" id="confirm_user_password" class="form-control" />
 					    </div>
 					    <br />
 					    <div class="form-group" align="center">
 					    	<input type="hidden" name="page" value="change_password" />
 					    	<input type="hidden" name="action" value="change_password" />
-					    	<input type="submit" name="user_password" id="user_password" class="btn btn-info" value="Change" />
+					    	<input type="submit" name="user_password" id="user_password" class="btn btn-info" value="Змiнити" />
 					    </div>
 	        		</form>
         		</div>

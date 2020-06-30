@@ -250,7 +250,7 @@ if(isset($_POST['page']))
 				}
 				else
 				{
-					$result_button = '<a href="exam_result.php?code='.$row["online_exam_code"].'" class="btn btn-dark btn-sm">Result</a>';
+					$result_button = '<a href="exam_result.php?code='.$row["online_exam_code"].'" class="btn btn-dark btn-sm">Результат</a>';
 				}
 
 				if($exam->Is_allowed_add_question($row['online_exam_id']))
@@ -317,7 +317,7 @@ if(isset($_POST['page']))
 			$exam->execute_query();
 
 			$output = array(
-				'success'	=>	'New Exam Details Added'
+				'success'	=>	'Додано нові деталі іспиту'
 			);
 
 			echo json_encode($output);
@@ -400,7 +400,7 @@ if(isset($_POST['page']))
 			$exam->execute_query();
 
 			$output = array(
-				'success'	=>	'Exam Details has been removed'
+				'success'	=>	'Деталі іспиту видалено'.$exam->query
 			);
 
 			echo json_encode($output);
@@ -628,27 +628,26 @@ if(isset($_POST['page']))
 			);
 
 			$exam->query = "
-			DELETE question_table 
+			DELETE FROM question_table 
 			WHERE question_id = :question_id
 			";
 
 			$exam->execute_query();
 
 			$exam->query = "
-			DELETE option_table 
+			DELETE FROM option_table 
 			WHERE question_id = :question_id
 			";
 
 			$exam->execute_query();
 
 			$output = array(
-				'success'	=>	'Вопрос был удален'
+				'success'	=>	'Питання було видалено'
 			);
 
 			echo json_encode($output);
 		}
 	}
-
 
 	if($_POST['page'] == 'user')
 	{
@@ -709,15 +708,15 @@ if(isset($_POST['page']))
 				$is_email_verified = '';
 				if($row["user_email_verified"] == 'yes')
 				{
-					$is_email_verified = '<label class="badge badge-success">Yes</label>';
+					$is_email_verified = '<label class="badge badge-success">Так</label>';
 				}
 				else
 				{
-					$is_email_verified = '<label class="badge badge-danger">No</label>';	
+					$is_email_verified = '<label class="badge badge-danger">Нi</label>';	
 				}
 								
 				$sub_array[] = $is_email_verified;
-				$sub_array[] = '<button type="buttom" name "view_detail" class="btn btn-primary btn-sm details" id="'.$row["user_id"].'">View Detais</button';
+				$sub_array[] = '<button type="buttom" name "view_detail" class="btn btn-primary btn-sm details" id="'.$row["user_id"].'">Переглянути іспит</button';
 				$sub_array[] = '';
 				$data[] = $sub_array;
 			}
@@ -873,7 +872,7 @@ if(isset($_POST['page']))
 
 				if($exam->Get_exam_status($exam_id) == 'Completed')
 				{
-					$result = '<a href="user_exam_result.php?code='.$_POST['code'].'&id='.$row['user_id'].'" class="btn btn-info btn-sm" target="_blank">Result</a>';
+					$result = '<a href="user_exam_result.php?code='.$_POST['code'].'&id='.$row['user_id'].'" class="btn btn-info btn-sm" target="_blank">Результат</a>';
 				}
 				$sub_array[] = $result;
 

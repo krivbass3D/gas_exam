@@ -66,11 +66,11 @@ if(isset($_POST['page']))
 			$subject= 'Online Examination Registration Verification';
 
 			$body = '
-			<p>Thank you for registering.</p>
-			<p>This is a verification eMail, please click the link to verify your eMail address by clicking this <a href="'.$exam->home_page.'verify_email.php?type=user&code='.$user_verfication_code.'" target="_blank"><b>link</b></a>.</p>
-			<p>In case if you have any difficulty please eMail us.</p>
-			<p>Thank you,</p>
-			<p>Online Examination System</p>
+			<p>Дякуємо за реєстрацію.</p>
+			<p>Це підтвердження електронної пошти, натисніть посилання, щоб підтвердити свою адресу електронної пошти <a href="'.$exam->home_page.'verify_email.php?type=user&code='.$user_verfication_code.'" target="_blank"><b>link</b></a>.</p>
+			<p>Якщо у вас виникли труднощі, будь ласка, надішліть нам  на електронну пошту.</p>
+			<p>Дякую,</p>
+			<p>Система онлайн-іспитів ПАТ КриворіжГАЗ</p>
 			';
 
 			$exam->send_email($receiver_email, $subject, $body);
@@ -117,14 +117,14 @@ if(isset($_POST['page']))
 						else
 						{
 							$output = array(
-								'error'		=>	'Wrong Password'
+								'error'		=>	'Невiрний пароль'
 							);
 						}
 					}
 					else
 					{
 						$output = array(
-							'error'		=>	'Your Email is not verify'
+							'error'		=>	'Ваш електронний лист не підтверджено'
 						);
 					}
 				}
@@ -132,7 +132,7 @@ if(isset($_POST['page']))
 			else
 			{
 				$output = array(
-					'error'		=>	'Wrong Email Address'
+					'error'		=>	'Неправильна адреса електронної пошти'
 				);
 			}
 
@@ -198,7 +198,7 @@ if(isset($_POST['page']))
 			session_destroy();
 
 			$output = array(
-				'success'		=>	'Password has been change'
+				'success'		=>	'Пароль змінено'
 			);
 
 			echo json_encode($output);
@@ -218,7 +218,7 @@ if(isset($_POST['page']))
 
 			$output = '
 			<div class="card">
-				<div class="card-header">Exam Details</div>
+				<div class="card-header">Деталі іспиту</div>
 				<div class="card-body">
 					<table class="table table-striped table-hover table-bordered">
 			';
@@ -226,28 +226,28 @@ if(isset($_POST['page']))
 			{
 				$output .= '
 				<tr>
-					<td><b>Exam Title</b></td>
+					<td><b>Назва іспиту</b></td>
 					<td>'.$row["online_exam_title"].'</td>
 				</tr>
 				<tr>
-					<td><b>Exam Date & Time</b></td>
+					<td><b>Дата іспиту</b></td>
 					<td>'.$row["online_exam_datetime"].'</td>
 				</tr>
 				<tr>
-					<td><b>Exam Duration</b></td>
-					<td>'.$row["online_exam_duration"].' Minute</td>
+					<td><b>Тривалість іспиту</b></td>
+					<td>'.$row["online_exam_duration"].' Хвилин</td>
 				</tr>
 				<tr>
-					<td><b>Exam Total Question</b></td>
+					<td><b>Всього запитань</b></td>
 					<td>'.$row["total_question"].' </td>
 				</tr>
 				<tr>
-					<td><b>Marks Per Right Answer</b></td>
-					<td>'.$row["marks_per_right_answer"].' Mark</td>
+					<td><b>Бали за правильну відповідь</b></td>
+					<td>'.$row["marks_per_right_answer"].' Бали</td>
 				</tr>
 				<tr>
-					<td><b>Marks Per Wrong Answer</b></td>
-					<td>-'.$row["marks_per_wrong_answer"].' Mark</td>
+					<td><b>Штрафи за неправильну відповідь</b></td>
+					<td>-'.$row["marks_per_wrong_answer"].' Бали</td>
 				</tr>
 				';
 				if($exam->If_user_already_enroll_exam($_POST['exam_id'], $_SESSION['user_id']))
@@ -255,7 +255,7 @@ if(isset($_POST['page']))
 					$enroll_button = '
 					<tr>
 						<td colspan="2" align="center">
-							<button type="button" name="enroll_button" class="btn btn-info">You Already Enroll it</button>
+							<button type="button" name="enroll_button" class="btn btn-info">Ви вже додали його</button>
 						</td>
 					</tr>
 					';
@@ -265,7 +265,7 @@ if(isset($_POST['page']))
 					$enroll_button = '
 					<tr>
 						<td colspan="2" align="center">
-							<button type="button" name="enroll_button" id="enroll_button" class="btn btn-warning" data-exam_id="'.$row['online_exam_id'].'">Enroll it</button>
+							<button type="button" name="enroll_button" id="enroll_button" class="btn btn-warning" data-exam_id="'.$row['online_exam_id'].'">Додати його</button>
 						</td>
 					</tr>
 					';
@@ -380,15 +380,15 @@ if(isset($_POST['page']))
 				$sub_array = array();
 				$sub_array[] = html_entity_decode($row["online_exam_title"]);
 				$sub_array[] = $row["online_exam_datetime"];
-				$sub_array[] = $row["online_exam_duration"] . ' Minute';
-				$sub_array[] = $row["total_question"] . ' Question';
-				$sub_array[] = $row["marks_per_right_answer"] . ' Mark';
-				$sub_array[] = '-' . $row["marks_per_wrong_answer"] . ' Mark';
+				$sub_array[] = $row["online_exam_duration"] . ' Хвилин';
+				$sub_array[] = $row["total_question"] . ' Запитань';
+				$sub_array[] = $row["marks_per_right_answer"] . ' Бали';
+				$sub_array[] = '-' . $row["marks_per_wrong_answer"] . ' Бали';
 				$status = '';
 
 				if($row['online_exam_status'] == 'Created')
 				{
-					$status = '<span class="badge badge-success">Created</span>';
+					$status = '<span class="badge badge-success">Створено</span>';
 				}
 
 				if($row['online_exam_status'] == 'Started')
@@ -405,11 +405,11 @@ if(isset($_POST['page']))
 
 				if($row["online_exam_status"] == 'Started')
 				{
-					$view_exam = '<a href="view_exam.php?code='.$row["online_exam_code"].'" class="btn btn-info btn-sm">View Exam</a>';
+					$view_exam = '<a href="view_exam.php?code='.$row["online_exam_code"].'" class="btn btn-info btn-sm">Здати іспит</a>';
 				}
 				if($row["online_exam_status"] == 'Completed')
 				{
-					$view_exam = '<a href="view_exam.php?code='.$row["online_exam_code"].'" class="btn btn-info btn-sm">View Exam</a>';
+					$view_exam = '<a href="view_exam.php?code='.$row["online_exam_code"].'" class="btn btn-info btn-sm">Переглянути іспит</a>';
 				}
 
 				

@@ -304,7 +304,8 @@ $(document).ready(function(){
 
 	$('#online_exam_datetime').datetimepicker({
 		startDate :date,
-		format: 'yyyy-mm-dd hh:ii',
+        format: 'yyyy-mm-dd hh:ii',
+        //format: 'yyyy-mm-dd',
 		autoclose:true
 	});
 

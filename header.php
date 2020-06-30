@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ua">
 <head>
-  	<title>Online Examination System in PHP</title>
+  	<title>Система онлайн-іспитів ПАТ КриворіжГАЗ</title>
   	<meta charset="utf-8">
   	<meta name="viewport" content="width=device-width, initial-scale=1">
   	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
@@ -31,23 +31,23 @@
     <a class="navbar-brand" href="index.php">
       <img src="master/logoGAS.png" width="40" height="40" alt="">
     </a>
-    <a class="navbar-brand" href="index.php">User Side</a>
+    <a class="navbar-brand" href="index.php">Користувач</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
     <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="collapsibleNavbar">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link" href="enroll_exam.php">Enroll Exam</a>
+          <a class="nav-link" href="enroll_exam.php">Доданi іспити</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="profile.php">Profile</a>
+          <a class="nav-link" href="profile.php">Профиль</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="change_password.php">Change Password</a>
+          <a class="nav-link" href="change_password.php">Змінити пароль</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="logout.php">Logout</a>
+          <a class="nav-link" href="logout.php">Вихiд</a>
         </li>    
       </ul>
     </div>  

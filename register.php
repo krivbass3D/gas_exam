@@ -16,54 +16,54 @@ include('header.php');
 		<div class="d-flex justify-content-center">
 			<br /><br />
 			<div class="card" style="margin-top:50px;margin-bottom: 100px;">
-        		<div class="card-header"><h4>User Registration</h4></div>
+        		<div class="card-header"><h4>Реєстрація користувача</h4></div>
         		<div class="card-body">
         			   <span id="message"></span>
                 <form method="post" id="user_register_form">
                   <div class="form-group">
-                    <label>Enter Email Address</label>
-                    <input type="text" name="user_email_address" id="user_email_address" class="form-control" data-parsley-checkemail data-parsley-checkemail-message='Email Address already Exists' />
+                    <label>Введіть електронну адресу</label>
+                    <input type="text" name="user_email_address" id="user_email_address" class="form-control" data-parsley-checkemail data-parsley-checkemail-message='Адреса електронної пошти вже існує' />
                   </div>
                   <div class="form-group">
-                    <label>Enter Password</label>
+                    <label>Введіть пароль</label>
                     <input type="password" name="user_password" id="user_password" class="form-control" />
                   </div>
                   <div class="form-group">
-                    <label>Enter Confirm Password</label>
+                    <label>Введіть пароль ще раз</label>
                     <input type="password" name="confirm_user_password" id="confirm_user_password" class="form-control" />
                   </div>
                   <div class="form-group">
-                    <label>Enter Name</label>
+                    <label>Введіть ім'я</label>
                     <input type="text" name="user_name" id="user_name" class="form-control" /> 
                   </div>
                   <div class="form-group">
-                    <label>Select Gender</label>
+                    <label>Виберіть стать</label>
                     <select name="user_gender" id="user_gender" class="form-control">
-                      <option value="Male">Male</option>
-                      <option value="Female">Female</option>
+                      <option value="Male">Чоловіча</option>
+                      <option value="Female">Жіноча</option>
                   </select> 
                   </div>
                   <div class="form-group">
-                    <label>Enter Address</label>
+                    <label>Введіть адресу</label>
                     <textarea name="user_address" id="user_address" class="form-control"></textarea>
                   </div>
                   <div class="form-group">
-                    <label>Enter Mobile Number</label>
+                    <label>Введіть номер мобільного телефону</label>
                     <input type="text" name="user_mobile_no" id="user_mobile_no" class="form-control" /> 
                   </div>
                   <div class="form-group">
-                    <label>Select Profile Image</label>
+                    <label>Виберіть зображення профілю</label>
                     <input type="file" name="user_image" id="user_image" />
                   </div>
                   <br />
                   <div class="form-group" align="center">
                     <input type="hidden" name='page' value='register' />
                     <input type="hidden" name="action" value="register" />
-                    <input type="submit" name="user_register" id="user_register" class="btn btn-info" value="Register" />
+                    <input type="submit" name="user_register" id="user_register" class="btn btn-info" value="Зареєструйтесь" />
                   </div>
                 </form>
           			<div align="center">
-          				<a href="login.php">Login</a>
+          				<a href="login.php">Вхiд</a>
           			</div>
         		</div>
       		</div>
@@ -138,13 +138,13 @@ $(document).ready(function(){
         beforeSend:function()
         {
           $('#user_register').attr('disabled', 'disabled');
-          $('#user_register').val('please wait...');
+          $('#user_register').val('Зачекайте...');
         },
         success:function(data)
         {
           if(data.success)
           {
-            $('#message').html('<div class="alert alert-success">Please check your email</div>');
+            $('#message').html('<div class="alert alert-success">Будь ласка, перевірте свою електронну пошту</div>');
             $('#user_register_form')[0].reset();
             $('#user_register_form').parsley().reset();
           }

@@ -24,7 +24,7 @@ $result = $exam->query_result();
 			<br /><br />
 			<span id="message"></span>
 			<div class="card" style="margin-top:50px;margin-bottom: 100px;">
-        		<div class="card-header"><h4>Profile</h4></div>
+        		<div class="card-header"><h4>Профиль</h4></div>
         		<div class="card-body">
         			<form method="post" id="profile_form">
         				<?php
@@ -37,26 +37,26 @@ $result = $exam->query_result();
         				});
         				</script>
 					    <div class="form-group">
-					        <label>Enter Name</label>
+					        <label>Введіть ім'я</label>
 					        <input type="text" name="user_name" id="user_name" class="form-control" value="<?php echo $row["user_name"]; ?>" />
 					    </div>
 					    <div class="form-group">
-					        <label>Select Gender</label>
+					        <label>Виберіть стать</label>
 					        <select name="user_gender" id="user_gender" class="form-control">
-					          	<option value="Male">Male</option>
-					          	<option value="Female">Female</option>
+					          	<option value="Male">Чоловiча</option>
+					          	<option value="Female">Жiноча</option>
 					        </select>
 					    </div>
 					    <div class="form-group">
-					        <label>Enter Address</label>
+					        <label>Введіть адресу</label>
 					        <textarea name="user_address" id="user_address" class="form-control"><?php echo $row["user_address"]; ?></textarea>
 					    </div>
 					    <div class="form-group">
-					        <label>Enter Mobile Number</label>
+					        <label>Введіть номер мобільного телефону</label>
 					        <input type="text" name="user_mobile_no" id="user_mobile_no" class="form-control" value="<?php echo $row["user_mobile_no"]; ?>" />
 					    </div>
 					    <div class="form-group">
-					        <label>Select Profile Image - </label>
+					        <label>Виберіть зображення профілю - </label>
 					        <input type="file" name="user_image" id="user_image" accept="image/*" /><br />
 					        <img src="upload/<?php echo $row["user_image"]; ?>" class="img-thumbnail" width="250"  />
 					        <input type="hidden" name="hidden_user_image" value="<?php echo $row["user_image"]; ?>" />
@@ -65,7 +65,7 @@ $result = $exam->query_result();
 					    <div class="form-group" align="center">
 					        <input type="hidden" name="page" value="profile" />
 					        <input type="hidden" name="action" value="profile" />
-					        <input type="submit" name="user_profile" id="user_profile" class="btn btn-info" value="Save" />
+					        <input type="submit" name="user_profile" id="user_profile" class="btn btn-info" value="Зберегти" />
 					    </div>
 					    <?php
 						}
@@ -119,7 +119,7 @@ $(document).ready(function(){
 				beforeSend:function()
 				{
 					$('#user_profile').attr('disabled', 'disabled');
-					$('#user_profile').val('please wait...');
+					$('#user_profile').val('Зачекайте...');
 				},
 				success:function(data)
 				{
@@ -132,7 +132,7 @@ $(document).ready(function(){
 						$('#message').html('<div class="alert alert-danger">'+data.error+'</div>');
 					}
 					$('#user_profile').attr('disabled', false);
-					$('#user_profile').val('Save');
+					$('#user_profile').val('Зберегти');
 				}
 			});
 		}
