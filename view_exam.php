@@ -28,7 +28,7 @@ if(isset($_GET['code']))
 	{
 		$exam_status = $row['online_exam_status'];
 		$exam_star_time = $row['online_exam_datetime'];
-		$duration = $row['online_exam_duration'] . ' хвилин';
+		$duration = $row['online_exam_duration'] . ' minute';
 		$exam_end_time = strtotime($exam_star_time . '+' . $duration);
 
 		$exam_end_time = date('Y-m-d H:i:s', $exam_end_time);

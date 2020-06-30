@@ -286,7 +286,7 @@ class Examination
 
 			if($current_datetime >= $exam_start_time && $current_datetime <= $exam_end_time)
 			{
-				//exam started
+				//exam started Старт экзамена
 				$this->data = array(
 					':online_exam_status'	=>	'Started'
 				);

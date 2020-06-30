@@ -394,7 +394,13 @@ if(isset($_POST['page']))
 				if($row['online_exam_status'] == 'Started')
 				{
 					$status = '<span class="badge badge-primary">Почато</span>';
+                }
+
+                if($row['online_exam_status'] == 'Pending')
+				{
+					$status = '<span class="badge badge-warning">Очікування</span>';
 				}
+
 
 				if($row['online_exam_status'] == 'Completed')
 				{
@@ -565,8 +571,8 @@ if(isset($_POST['page']))
 				$output .= '
 					<br /><br />
 				  	<div align="center">
-				   		<button type="button" name="previous" class="btn btn-info btn-lg previous" id="'.$previous_id.'" '.$if_previous_disable.'>Previous</button>
-				   		<button type="button" name="next" class="btn btn-warning btn-lg next" id="'.$next_id.'" '.$if_next_disable.'>Next</button>
+				   		<button type="button" name="previous" class="btn btn-info btn-lg previous" id="'.$previous_id.'" '.$if_previous_disable.'>Попередній</button>
+				   		<button type="button" name="next" class="btn btn-warning btn-lg next" id="'.$next_id.'" '.$if_next_disable.'>Далі</button>
 				  	</div>
 				  	<br /><br />';
 			}
@@ -583,7 +589,7 @@ if(isset($_POST['page']))
 			$result = $exam->query_result();
 			$output = '
 			<div class="card">
-				<div class="card-header">Question Navigation</div>
+				<div class="card-header">Навігація з питань</div>
 				<div class="card-body">
 					<div class="row">
 			';
@@ -615,7 +621,7 @@ if(isset($_POST['page']))
 
 			$output = '
 			<div class="card">
-				<div class="card-header">User Details</div>
+				<div class="card-header">Інформація про користувача</div>
 				<div class="card-body">
 					<div class="row">
 			';
@@ -629,15 +635,15 @@ if(isset($_POST['page']))
 				<div class="col-md-9">
 					<table class="table table-bordered">
 						<tr>
-							<th>Name</th>
+							<th>Користувач</th>
 							<td>'.$row["user_name"].'</td>
 						</tr>
 						<tr>
-							<th>Email ID</th>
+							<th>ID Пошти</th>
 							<td>'.$row["user_email_address"].'</td>
 						</tr>
 						<tr>
-							<th>Gendar</th>
+							<th>Стать</th>
 							<td>'.$row["user_gender"].'</td>
 						</tr>
 					</table>

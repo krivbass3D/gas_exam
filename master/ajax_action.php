@@ -758,19 +758,19 @@ if(isset($_POST['page']))
 						<br />
 						<table class="table table-bordered">
 							<tr>
-								<th>Name</th>
+								<th>Користувач</th>
 								<td>'.$row["user_name"].'</td>
 							</tr>
 							<tr>
-								<th>Gender</th>
+								<th>Стать</th>
 								<td>'.$row["user_gender"].'</td>
 							</tr>
 							<tr>
-								<th>Address</th>
+								<th>Адресса</th>
 								<td>'.$row["user_address"].'</td>
 							</tr>
 							<tr>
-								<th>Mobile No.</th>
+								<th>No. Мобiльного</th>
 								<td>'.$row["user_mobile_no"].'</td>
 							</tr>
 							<tr>
@@ -778,7 +778,7 @@ if(isset($_POST['page']))
 								<td>'.$row["user_email_address"].'</td>
 							</tr>
 							<tr>
-								<th>Email Status</th>
+								<th>Email Статус</th>
 								<td>'.$is_email_verified.'</td>
 							</tr>
 						</table>
