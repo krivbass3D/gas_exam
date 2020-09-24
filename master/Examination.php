@@ -125,8 +125,8 @@ class Examination
 		{
 			$exam_datetime = $row['online_exam_datetime'];
 		}
-
-		if($exam_datetime > $current_datetime)
+        //<Было изначально: если дата окончания экзамена больше текущей даты т. е. время уже прошло то возвращает истина
+ 		if($exam_datetime > $current_datetime)
 		{
 			return true;
 		}

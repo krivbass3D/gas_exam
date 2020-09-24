@@ -29,7 +29,7 @@
   ?>
   <nav class="navbar navbar-expand-sm bg-primary navbar-dark">
     <a class="navbar-brand" href="index.php">
-      <img src="master/logoGAS.png" width="40" height="40" alt="">
+      <img src="master/logogas.png" width="40" height="40" alt="">
     </a>
     <a class="navbar-brand" href="index.php">Користувач</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">

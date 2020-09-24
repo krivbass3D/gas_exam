@@ -103,8 +103,8 @@ $(document).ready(function(){
 				$('#single_question_area').html(data);
 			}
 		})
-	}
-
+    }
+    
 	$(document).on('click', '.next', function(){
 		var question_id = $(this).attr('id');
 		load_question(question_id);
@@ -115,6 +115,22 @@ $(document).ready(function(){
 		load_question(question_id);
 	});
 
+    $(document).on('click', '.end', function(){
+        var exam_id = "<?php echo $exam_id; ?>";
+        if (confirm("Ви впевнені в закінченні іспиту?")) {
+    		$.ajax({
+	    		url:"user_ajax_action.php",
+		    	method:"POST",
+			    data:{exam_id:exam_id, page:'view_exam', action:'end'},
+			    success:function(data)
+			    {
+                    alert("Відповіді збережені!")
+    			}
+            })
+            window.location = 'enroll_exam.php';
+        }
+    });
+    
 	function question_navigation()
 	{
 		$.ajax({
@@ -138,7 +154,7 @@ $(document).ready(function(){
 		$.ajax({
 			url:"user_ajax_action.php",
 			method:"POST",
-			data:{page:'view_exam', action:'user_detail'},
+			data:{exam_id:exam_id, page:'view_exam', action:'user_detail'},
 			success:function(data)
 			{
 				$('#user_details_area').html(data);
@@ -163,15 +179,15 @@ $(document).ready(function(){
 		var remaining_second = $("#exam_timer").TimeCircles().getTime();
 		if(remaining_second < 1)
 		{
-			alert('Час іспиту закінчився'+remaining_second);
+			alert('Час іспиту закінчився');
 			location.reload();
 		}
 	}, 1000);
 
 	$(document).on('click', '.answer_option', function(){
+        
 		var question_id = $(this).data('question_id');
-
-		var answer_option = $(this).data('id');
+        var answer_option = $(this).data('id');
 
 		$.ajax({
 			url:"user_ajax_action.php",
@@ -179,7 +195,7 @@ $(document).ready(function(){
 			data:{question_id:question_id, answer_option:answer_option, exam_id:exam_id, page:'view_exam', action:'answer'},
 			success:function(data)
 			{
-
+               // console.log(JSON.parse(JSON.stringify($(this).data('question_id'))))
 			}
 		})
 	});

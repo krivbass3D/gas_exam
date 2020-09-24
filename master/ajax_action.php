@@ -3,6 +3,7 @@
 //ajax_action.php
 
 include('Examination.php');
+include('lib/password.php');//библиотека проверки зашифрованого пароля фунции password_verify и password_hash
 
 require_once('../class/class.phpmailer.php');
 
@@ -869,7 +870,6 @@ if(isset($_POST['page']))
 				}
 				$sub_array[] = $is_email_verified;
 				$result = '';
-
 				if($exam->Get_exam_status($exam_id) == 'Completed')
 				{
 					$result = '<a href="user_exam_result.php?code='.$_POST['code'].'&id='.$row['user_id'].'" class="btn btn-info btn-sm" target="_blank">Результат</a>';

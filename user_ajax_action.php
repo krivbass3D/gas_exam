@@ -3,6 +3,7 @@
 //user_ajax_action.php
 
 include('master/Examination.php');
+include('lib/password.php');//библиотека проверки зашифрованого пароля фунции password_verify и password_hash
 
 require_once('class/class.phpmailer.php');
 
@@ -534,7 +535,8 @@ if(isset($_POST['page']))
 				$previous_result = $exam->query_result();
 
 				$previous_id = '';
-				$next_id = '';
+                $next_id = '';
+                $end_id = '';//флаг получены все ответы на все вопросы
 
 				foreach($previous_result as $previous_row)
 				{
@@ -574,10 +576,22 @@ if(isset($_POST['page']))
 				   		<button type="button" name="previous" class="btn btn-info btn-lg previous" id="'.$previous_id.'" '.$if_previous_disable.'>Попередній</button>
 				   		<button type="button" name="next" class="btn btn-warning btn-lg next" id="'.$next_id.'" '.$if_next_disable.'>Далі</button>
 				  	</div>
-				  	<br /><br />';
+                      <br />';
+                //Кнопка завершение теста
+                $output .= '
+                    <br />
+                    <div align="center">
+  				   		<button type="button" name="end" class="btn btn-danger btn-lg end" id="'.$end_id.'" '.$if_end_disable.'>Завершити iспит</button>
+				  	</div>
+                    <br />';
 			}
 
-			echo $output;
+            echo $output;
+            // вывод сохраненных ответов
+            echo "<pre>";
+            print_r($_POST);
+            echo "</pre>";
+            // конец вывода сохраненных ответов
 		}
 		if($_POST['action'] == 'question_navigation')
 		{
@@ -683,8 +697,19 @@ if(isset($_POST['page']))
 			AND exam_id = '".$_POST['exam_id']."' 
 			AND question_id = '".$_POST["question_id"]."'
 			";
-			$exam->execute_query();
-		}
+            $exam->execute_query();
+            
+        }
+        
+        if($_POST['action'] == 'end')
+		{
+			$exam->query = "
+			UPDATE online_exam_table 
+			SET online_exam_status = 'Completed' 
+			WHERE online_exam_id = ".$_POST["exam_id"]." 
+			";
+            $exam->execute_query();
+    	}
 	}
 	
 }

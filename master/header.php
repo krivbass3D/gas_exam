@@ -36,7 +36,7 @@ $exam->admin_session_private();
     -->
     <nav class="navbar navbar-expand-sm bg-primary navbar-dark">
         <a class="navbar-brand" href="index.php">
-            <img src="logoGAS.png" width="40" height="40" alt="">
+            <img src="logogas.png" width="40" height="40" alt="">
         </a>
         <a class="navbar-brand" href="index.php">Адміністратор</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
